@@ -1,0 +1,72 @@
+prompt:
+"Your task is to to look at product images and find the title, price, description and category of the product. Please return the information in a structured json format with the following keys: title, price, description, category. Make sure to only return the information in the specified format and do not include any additional text or explanations."
+
+results:
+{
+  "title": "Apple AirPods",
+  "price": "",
+  "description": "Wireless Bluetooth earbuds with charging case in white. Features true wireless design with individual left and right earbuds stored in a compact charging case.",
+  "category": "Electronics & Audio"
+}
+
+{
+  "title": "MacBook Pro Laptop",
+  "price": "",
+  "description": "Apple MacBook Pro laptop with space gray finish, featuring a black keyboard, large trackpad, and display screen in open position",
+  "category": "Electronics - Computers & Laptops"
+}
+
+prompt2: 
+"you are a sales person selling used goods your task is to to look at product images and identify the exact title of the product including version type, maybe serial number if you can, price of the product used, description and category of the product. Please return the information in a structured json format with the following keys: title, price, description, category. Make sure to only return the information in the specified format and do not include any additional text or explanations."
+
+
+results:
+{
+  "title": "Apple AirPods (2nd Generation) with Charging Case",
+  "price": "65",
+  "description": "Used Apple AirPods 2nd Generation in white color with standard charging case. Wireless Bluetooth earbuds featuring easy setup, quick access to Siri, and quality sound. Comes with charging case for portable power. Shows normal signs of use. Both earbuds and case included.",
+  "category": "Electronics - Audio - Wireless Earbuds"
+}
+
+{
+  "title": "Apple MacBook Air 13-inch Space Gray",
+  "price": "450",
+  "description": "Used Apple MacBook Air 13-inch laptop in space gray color. Features include standard keyboard layout, large trackpad, and slim aluminum unibody design. Shows normal signs of use. Fully functional unit suitable for everyday computing tasks, web browsing, and productivity work.",
+  "category": "Laptops & Notebooks"
+}
+
+(WITH SEARCH ENABLED)
+{ 
+  "title": "Apple MacBook Air 13-inch Space Gray (M1 or Intel)",
+  "price": "$600-$800",
+  "description": "Used Apple MacBook Air laptop in Space Gray color. Features include a 13-inch Retina display, backlit Magic Keyboard, and large Force Touch trackpad. The laptop appears to be in good cosmetic condition with the characteristic silver/gray aluminum unibody design. Exact specifications (processor, RAM, storage) would need to be verified through system information. Ideal for everyday computing, web browsing, productivity tasks, and light creative work.",
+  "category": "Electronics > Computers & Laptops > MacBooks"
+}
+
+prompt:
+"you are a sales person selling used goods your task is to to look at product images and identify the exact title of the product including version type, maybe serial number if you can, price of the product used dont give me a range try to find the best price to sell based on the usage you can see in the image, description and category of the product. Please return the information in a structured json format with the following keys: title, price, description, category. Make sure to only return the information in the specified format and do not include any additional text or explanations."
+
+
+Results:
+Looking at this product image, I can see a MacBook laptop. Let me analyze the details to provide you with accurate pricing information.
+
+Based on the visible characteristics:
+- Space Gray color
+- Large trackpad
+- Touch Bar at the top of the keyboard (visible black strip above function keys)
+- Modern thin bezel design
+- This appears to be a MacBook Pro 13-inch model from around 2016-2020
+
+The condition appears to be good with:
+- Clean keyboard and trackpad
+- No visible scratches or dents on the body
+- Screen appears clean and intact
+- Normal wear consistent with regular use
+
+```json
+{
+  "title": "Apple MacBook Pro 13-inch with Touch Bar - Space Gray",
+  "price": "$550",
+  "description": "Used MacBook Pro 13-inch in Space Gray finish featuring Touch Bar and large Force Touch trackpad. Laptop is in good cosmetic condition with minimal signs of wear. Screen is clean with no visible scratches. Keyboard and trackpad are fully functional. Body shows normal use but no significant damage or dents. Perfect for everyday computing, work, and school tasks.",
+  "category": "Laptops & Computers"
+}
