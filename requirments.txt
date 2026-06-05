@@ -3,3 +3,4 @@ dotenv
 os
 fastapi
 uvicorn
+pysqlite3
