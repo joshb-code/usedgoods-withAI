@@ -1,22 +1,37 @@
 import sqlite3
 
-#connect database
-conn = sqlite3.connect('marketplace.db')
-cursor = conn.cursor()
+def get_db():
+    #connect database
+    conn = sqlite3.connect('marketplace.db', check_same_thread=False)
+    cursor = conn.cursor()
+    
+    yield cursor
+    conn.commit()
+    conn.close()
 
-#create table
-cursor.execute("""
-                CREATE TABLE IF NOT EXISTS listings
-                (id INTEGER PRIMARY KEY AUTOINCREMENT,
-                title TEXT NOT NULL,
-                description TEXT NOT NULL,
-                price REAL NOT NULL)
-               """);
+def init_db():
+    conn = sqlite3.connect('marketplace.db', check_same_thread=False)
+    cursor = conn.cursor()
+    
+    #create listings table
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS listings (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL,
+            description TEXT NOT NULL,
+            price REAL NOT NULL
+        )
+    ''')
 
-#commit changes and close connection
-conn.commit()
-
-res = cursor.execute("SELECT * FROM sqlite_master")
-print(res.fetchone())
-
-conn.close()
+    #table with all the listing images
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS images (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            listing_id INTEGER,
+            image_data BLOB,
+            FOREIGN KEY (listing_id) REFERENCES listings (id)
+        )
+    ''')
+    
+    conn.commit()
+    conn.close()
