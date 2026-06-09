@@ -4,3 +4,4 @@ os
 fastapi
 uvicorn
 pysqlite3
+python-multipart
